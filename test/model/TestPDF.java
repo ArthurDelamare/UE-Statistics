@@ -20,6 +20,7 @@ public class TestPDF {
 
 	@Test
 	public void ReadTest() throws IOException {
+		System.out.println("\n-------------------------------");
 		pdf.Read();
 		String lines[] = pdf.getLines();
 		assertNotNull(lines);
@@ -39,7 +40,23 @@ public class TestPDF {
 			}
 		}
 		assertNotEquals(0, trueCount);
-		System.out.println("------------------------------------");
+		System.out.println("\n------------------------------------");
 		System.out.println("Nombre d'UE: " + trueCount);
+	}
+	
+	@Test
+	public void isChapterTest() throws IOException{
+		System.out.println("\n------------------------------");
+		pdf.Read();
+		String lines[] = pdf.getLines();
+		for (String line : lines){
+			if (pdf.isUE(line)){
+				pdf.UELists.add(new UE());
+			}
+			
+			else if (pdf.isChapter(line)){
+				System.out.println(line);
+			}
+		}
 	}
 }

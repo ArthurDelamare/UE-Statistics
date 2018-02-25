@@ -47,7 +47,7 @@ public class PDF {
 	public boolean isChapter(String line){
 		
 		for (int i=0; i<10; i++){
-			if (line.endsWith(Integer.toString(i)) && UELists.size() != 0){
+			if (line.endsWith(Integer.toString(i)) && UELists.size() != 0 && (line.contains("Page") == false)){
 				return true;
 			}
 		}
