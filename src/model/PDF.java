@@ -44,6 +44,17 @@ public class PDF {
 		return false;
 	}
 	
+	public boolean isChapter(String line){
+		
+		for (int i=0; i<10; i++){
+			if (line.endsWith(Integer.toString(i)) && UELists.size() != 0){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	public String[] getLines() {
 		return lines;
 	}
