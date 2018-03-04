@@ -32,6 +32,13 @@ public class UE extends ArrayList<Chapter> {
 		this.grade = grade;
 	}
 
+	public UE(){
+	}
+	
+	public UE(String line){
+		this.Fill(line);
+	}
+	
 	public void Fill(String line){
 		//
 		if (line.matches("(.*)[A-Z]")){
@@ -53,7 +60,7 @@ public class UE extends ArrayList<Chapter> {
 		//
 		else{
 			String splitLine[] = line.split(" ");
-			for(int i = 1; i < splitLine.length-1; i++){
+			for(int i = 1; i < splitLine.length; i++){
 				if (this.title == ""){
 					this.title = splitLine[i];
 				}

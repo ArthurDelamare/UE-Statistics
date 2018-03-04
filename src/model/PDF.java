@@ -62,7 +62,10 @@ public class PDF {
 	public void FillUEList(){
 		for(String line : lines){
 			if(this.isUE(line)){
-				this.UEList.add(new UE());
+				this.UEList.add(new UE(line));
+			}
+			else if(this.isChapter(line)){
+				this.UEList.get(this.UEList.size()-1).add(new Chapter(line));
 			}
 		}
 	}

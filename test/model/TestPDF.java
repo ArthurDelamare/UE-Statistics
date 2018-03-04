@@ -59,4 +59,14 @@ public class TestPDF {
 			}
 		}
 	}
+	
+	@Test
+	public void FillUEListTest() throws IOException{
+		this.pdf.Read();
+		this.pdf.FillUEList();
+		System.out.println("\n------------------------------");
+		for(int i = 0; i < this.pdf.UEList.size()-1; i++){
+			System.out.println(this.pdf.UEList.get(i).getTitle());
+		}
+	}
 }

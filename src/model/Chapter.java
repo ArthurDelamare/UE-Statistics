@@ -7,6 +7,14 @@ public class Chapter {
 	public char grade = ' ';
 	public byte coefficient = 0; 
 	
+	public Chapter(){
+		
+	}
+	
+	public Chapter(String line){
+		this.Fill(line);
+	}
+	
 	public void Fill(String line){
 		
 		//String array containing the split parts 
