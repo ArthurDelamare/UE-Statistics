@@ -14,7 +14,7 @@ public class TestPDF {
 	
 	@Before
 	public void setUp() throws Exception {
-		this.pdf = new PDF();
+		this.pdf = new PDF("C:/Users/Arthur/Downloads/test.pdf");
 		
 	}
 
@@ -51,7 +51,7 @@ public class TestPDF {
 		String lines[] = pdf.getLines();
 		for (String line : lines){
 			if (pdf.isUE(line)){
-				pdf.UELists.add(new UE());
+				pdf.UEList.add(new UE());
 			}
 			
 			else if (pdf.isChapter(line)){

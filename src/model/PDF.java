@@ -12,10 +12,14 @@ public class PDF {
 	
 	private String path = "";
 	private String lines[] = {};
-	public ArrayList<UE> UELists = new ArrayList<UE>();
+	public ArrayList<UE> UEList = new ArrayList<UE>();
+	
+	public PDF(String path){
+		this.path = path;
+	}
 	
 	public void Read() throws IOException{
-		 try (PDDocument document = PDDocument.load(new File("C:/Users/Arthur/Downloads/test.pdf"))) {
+		 try (PDDocument document = PDDocument.load(new File(path))) {
 
 	            document.getClass();
 
@@ -47,12 +51,20 @@ public class PDF {
 	public boolean isChapter(String line){
 		
 		for (int i=0; i<10; i++){
-			if (line.endsWith(Integer.toString(i)) && UELists.size() != 0 && (line.contains("Page") == false)){
+			if (line.endsWith(Integer.toString(i)) && UEList.size() != 0 && (line.contains("Page") == false)){
 				return true;
 			}
 		}
 		
 		return false;
+	}
+	
+	public void FillUEList(){
+		for(String line : lines){
+			if(this.isUE(line)){
+				this.UEList.add(new UE());
+			}
+		}
 	}
 	
 	public String[] getLines() {
