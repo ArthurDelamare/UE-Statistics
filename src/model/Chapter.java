@@ -21,6 +21,12 @@ public class Chapter {
 				this.title = this.title + " " + splitLine[i];
 			}
 		}
+		else {
+			this.coefficient = Byte.parseByte(splitLine[splitLine.length-1]);
+			for(int i = 0; i < splitLine.length-1; i++){
+				this.title = this.title + " " + splitLine[i];
+			}
+		}
 	}
 	
 }
