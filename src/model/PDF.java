@@ -49,11 +49,9 @@ public class PDF {
 	}
 	
 	public boolean isChapter(String line){
-		
-		for (int i=0; i<10; i++){
-			if (line.endsWith(Integer.toString(i)) && UEList.size() != 0 && (line.contains("Page") == false)){
-				return true;
-			}
+
+		if (line.matches(".+\\s[0-9]$") && UEList.size() != 0 && (line.contains("Page") == false)){
+			return true;
 		}
 		
 		return false;

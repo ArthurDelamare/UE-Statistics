@@ -14,13 +14,13 @@ public class TestPDF {
 	
 	@Before
 	public void setUp() throws Exception {
-		this.pdf = new PDF("C:/Users/Arthur/Downloads/test.pdf");
+		this.pdf = new PDF("C:/Users/Arthur/Downloads/Dossier_Synthese_Arthur_DELAMARE_Exia 17 Rouen A2_Semestre_3.pdf");
 		
 	}
 
 	@Test
 	public void ReadTest() throws IOException {
-		System.out.println("\n-------------------------------");
+		System.out.println("\n------------------------------- Read Test");
 		pdf.Read();
 		String lines[] = pdf.getLines();
 		assertNotNull(lines);
@@ -40,13 +40,13 @@ public class TestPDF {
 			}
 		}
 		assertNotEquals(0, trueCount);
-		System.out.println("\n------------------------------------");
+		System.out.println("\n------------------------------------ isUE test");
 		System.out.println("Nombre d'UE: " + trueCount);
 	}
 	
 	@Test
 	public void isChapterTest() throws IOException{
-		System.out.println("\n------------------------------");
+		System.out.println("\n------------------------------ isChapter Test");
 		pdf.Read();
 		String lines[] = pdf.getLines();
 		for (String line : lines){
@@ -64,9 +64,13 @@ public class TestPDF {
 	public void FillUEListTest() throws IOException{
 		this.pdf.Read();
 		this.pdf.FillUEList();
-		System.out.println("\n------------------------------");
+		System.out.println("\n------------------------------ Final test");
 		for(int i = 0; i < this.pdf.UEList.size()-1; i++){
-			System.out.println(this.pdf.UEList.get(i).getTitle());
+			System.out.println("UE: " + (i+1));
+			System.out.println(this.pdf.UEList.get(i).getTitle() + " - size : " + (this.pdf.UEList.get(i).size()));
+			for(int j = 0; j < this.pdf.UEList.get(i).size(); j++){
+				System.out.println(this.pdf.UEList.get(i).get(j).title);
+			}
 		}
 	}
 }
