@@ -14,7 +14,7 @@ public class TestPDF {
 	
 	@Before
 	public void setUp() throws Exception {
-		this.pdf = new PDF("C:/Users/Arthur/Downloads/Dossier_Synthese_Arthur_DELAMARE_Exia 17 Rouen A2_Semestre_3.pdf");
+		this.pdf = new PDF("C:/Users/Arthur/Downloads/test.pdf");
 		
 	}
 
@@ -65,7 +65,7 @@ public class TestPDF {
 		this.pdf.Read();
 		this.pdf.FillUEList();
 		System.out.println("\n------------------------------ Final test");
-		for(int i = 0; i < this.pdf.UEList.size()-1; i++){
+		for(int i = 0; i < this.pdf.UEList.size(); i++){
 			System.out.println("UE: " + (i+1));
 			System.out.println(this.pdf.UEList.get(i).getTitle() + " - size : " + (this.pdf.UEList.get(i).size()));
 			for(int j = 0; j < this.pdf.UEList.get(i).size(); j++){
